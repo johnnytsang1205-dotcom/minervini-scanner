@@ -1,14 +1,5 @@
-import subprocess
-import sys
-
-# 終極必殺技：如果發現無 yfinance，就即刻強制自動安裝！
-try:
-    import yfinance as yf
-except ImportError:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "yfinance"])
-    import yfinance as yf
-
 import streamlit as st
+import yfinance as yf
 import pandas as pd
 
 st.title("📈 Mark Minervini 趨勢模板篩選器")
@@ -55,3 +46,4 @@ if results:
     st.dataframe(pd.DataFrame(results))
 else:
     st.warning("今日名單中沒有股票符合所有條件。")
+
